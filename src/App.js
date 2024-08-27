@@ -2,8 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import './App.css';
 import logo from './mba.svg'; // Make sure you have a logo.svg file in your src folder
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 function App() {
+ 
+ 
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       const particle = document.createElement('div');
