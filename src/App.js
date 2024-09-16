@@ -80,7 +80,7 @@ const App = () => {
     skills: { x: 0, y: 150 },
   };
 
-  // Skills data (percentages removed)
+  // Skills data
   const skills = [
     {
       name: 'Node.js',
