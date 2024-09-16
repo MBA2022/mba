@@ -80,37 +80,32 @@ const App = () => {
     skills: { x: 0, y: 150 },
   };
 
-  // Skills data
+  // Skills data (percentages removed)
   const skills = [
     {
       name: 'Node.js',
       icon: faNodeJs,
       color: '#68A063',
-      percentage: 30,
     },
     {
       name: 'Python',
       icon: faPython,
       color: '#3776AB',
-      percentage: 70,
     },
     {
       name: 'C++',
       icon: faCode,
       color: '#00599C',
-      percentage: 79,
     },
     {
       name: 'Java',
       icon: faJava,
       color: '#007396',
-      percentage: 85,
     },
     {
       name: 'HTML/CSS/JS',
       icon: faHtml5,
       color: '#E34F26',
-      percentage: 65,
     },
   ];
 
@@ -168,7 +163,8 @@ const App = () => {
               <h2>Overview</h2>
               <p>
                 I'm a passionate developer focused on building efficient and innovative solutions.
-                With experience in various programming languages and frameworks, I enjoy tackling new challenges and continuously learning.
+                With experience in various programming languages and frameworks, I enjoy tackling new
+                challenges and continuously learning.
               </p>
             </div>
           </div>
@@ -234,7 +230,7 @@ const App = () => {
               </button>
             </div>
             <div className="window-content">
-              {/* Skill Cards */}
+              {/* Skill Cards without progress bars */}
               {skills.map((skill, index) => (
                 <div className="skill-card" key={index}>
                   <div className="skill-logo">
@@ -242,14 +238,6 @@ const App = () => {
                   </div>
                   <div className="skill-info">
                     <h3>{skill.name}</h3>
-                    <div className="progress-bar">
-                      <div
-                        className="progress"
-                        style={{ width: `${skill.percentage}%`, backgroundColor: skill.color }}
-                      >
-                        <span className="progress-text">{skill.percentage}%</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               ))}
