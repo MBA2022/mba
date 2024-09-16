@@ -1,51 +1,320 @@
-body, html {
+/* General Styles */
+body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, #0078d7, #ff4081);
+  height: 100vh;
+  overflow: hidden;
 }
 
-.App {
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
 }
 
-.logo-circle {
-  width: 150px;
-  height: 150px;
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border: 2px solid #ddd;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.logo-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.logo img {
+  width: 50px;
+  height: 50px;
 }
 
-.logo-circle:hover {
-  transform: scale(1.2);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+.logo:hover {
+  transform: scale(1.1);
 }
 
-.particle {
-    position: fixed;
-    pointer-events: none;
-    border-radius: 50%;
-    opacity: 1;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Intro Text with typing effect and glow */
+.intro-text {
+  text-align: center;
+  color: white;
+  font-size: 36px;
+}
+
+.intro-text h1 {
+  font-size: 48px;
+  color: white;
+}
+
+.glow-text {
+  color: #ff4081;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(75, 75, 75, 0.5), 0 0 20px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  animation: smoothGlow 2s infinite alternate;
+}
+
+@keyframes smoothGlow {
+  from {
+    text-shadow: 0 0 10px rgba(54, 0, 201, 0.5), 0 0 20px rgba(24, 20, 22, 0.5);
   }
+  to {
+    text-shadow: 0 0 20px rgba(24, 20, 22, 0.5), 0 0 40px rgba(24, 20, 22, 0.5);
+  }
+}
+
+/* Gradient navigation menu */
+.navigation-menu {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(135deg, #0078d7, #ff4081);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.navigation-menu button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.navigation-menu button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transform: translateX(10px);
+}
+
+/* Social Media */
+.social-media {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-media a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-media a:hover {
+  color: #ff4081;
+  transform: scale(1.2);
+}
+
+/* Draggable Window styles */
+.window {
+  position: absolute;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: linear-gradient(135deg, #0078d7, #ff4081);
+  /* Removed transition on transform to improve dragging performance */
+  transition: box-shadow 0.3s ease;
+}
+
+.window-header {
+  background: linear-gradient(135deg, #ff4081, #0078d7);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: move;
+}
+
+.window-content {
+  padding: 20px;
+  background-color: white;
+  text-align: left;
+}
+
+.window-content h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #0078d7;
+  padding-bottom: 5px;
+}
+
+.window-content h3 {
+  font-size: 20px;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.window-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff6666;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Project Cards */
+.project-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.project-card a {
+  color: #0078d7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-card a:hover {
+  color: #ff4081;
+}
+
+/* Skill Cards */
+.skill-card {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+.skill-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-info {
+  flex: 1;
+}
+
+.skill-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #e0e0e0;
+  border-radius: 7.5px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #0078d7;
+  transition: width 0.5s ease-in-out;
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: white;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@media (max-width: 600px) {
+  .intro-text h1 {
+    font-size: 36px;
+  }
+
+  .navigation-menu {
+    top: 80px;
+    left: 10px;
+    padding: 15px;
+  }
+
+  .navigation-menu button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .window {
+    max-width: 90%;
+  }
+
+  .window-header {
+    font-size: 18px;
+  }
+
+  .project-card h3,
+  .skill-card h3 {
+    font-size: 16px;
+  }
+
+  .project-card p,
+  .skill-info h3 {
+    font-size: 14px;
+  }
+}
